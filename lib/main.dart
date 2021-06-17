@@ -10,6 +10,26 @@ class XylophoneApp extends StatelessWidget {
     print('audio played: note$noteVal.wav');
   }
 
+  Expanded createColumn({int noteNum, Color color}) {
+    return Expanded(
+      child: Container(
+        decoration: BoxDecoration(
+            color: color,
+            border: Border.all(
+              color: color,
+            ),
+            borderRadius: BorderRadius.all(Radius.circular(40))),
+        //color: color,
+        width: double.infinity,
+        child: TextButton(
+          onPressed: () {
+            playMusic(noteNum);
+          },
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,83 +39,31 @@ class XylophoneApp extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Expanded(
-                child: Container(
-                  color: Colors.deepPurpleAccent,
-                  width: double.infinity,
-                  child: TextButton(
-                    onPressed: () {
-                      playMusic(1);
-                    },
-                  ),
-                ),
+              createColumn(noteNum: 1, color: Colors.deepPurpleAccent),
+              SizedBox(
+                height: 2,
               ),
-              Expanded(
-                child: Container(
-                  color: Colors.indigo,
-                  width: double.infinity,
-                  child: TextButton(
-                    onPressed: () {
-                      playMusic(2);
-                    },
-                  ),
-                ),
+              createColumn(noteNum: 2, color: Colors.indigoAccent),
+              SizedBox(
+                height: 2,
               ),
-              Expanded(
-                child: Container(
-                  color: Colors.blue,
-                  width: double.infinity,
-                  child: TextButton(
-                    onPressed: () {
-                      playMusic(3);
-                    },
-                  ),
-                ),
+              createColumn(noteNum: 3, color: Colors.blueAccent),
+              SizedBox(
+                height: 2,
               ),
-              Expanded(
-                child: Container(
-                  color: Colors.greenAccent,
-                  width: double.infinity,
-                  child: TextButton(
-                    onPressed: () {
-                      playMusic(4);
-                    },
-                  ),
-                ),
+              createColumn(noteNum: 4, color: Colors.greenAccent),
+              SizedBox(
+                height: 2,
               ),
-              Expanded(
-                child: Container(
-                  color: Colors.yellowAccent,
-                  width: double.infinity,
-                  child: TextButton(
-                    onPressed: () {
-                      playMusic(5);
-                    },
-                  ),
-                ),
+              createColumn(noteNum: 5, color: Colors.yellowAccent),
+              SizedBox(
+                height: 2,
               ),
-              Expanded(
-                child: Container(
-                  color: Colors.orange,
-                  width: double.infinity,
-                  child: TextButton(
-                    onPressed: () {
-                      playMusic(6);
-                    },
-                  ),
-                ),
+              createColumn(noteNum: 6, color: Colors.orangeAccent),
+              SizedBox(
+                height: 2,
               ),
-              Expanded(
-                child: Container(
-                  color: Colors.redAccent,
-                  width: double.infinity,
-                  child: TextButton(
-                    onPressed: () {
-                      playMusic(7);
-                    },
-                  ),
-                ),
-              ),
+              createColumn(noteNum: 7, color: Colors.redAccent),
             ],
           ),
         ),
